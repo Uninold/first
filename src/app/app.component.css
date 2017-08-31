@@ -1,13 +1,13 @@
-label{
+label {
     display: inline-block;
     width: 170px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size:12pt;
-    margin:5px;
-    padding-left:5px;
-    color:#09a;
-
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12pt;
+    margin: 5px;
+    padding-left: 5px;
+    color: #09a;
 }
+
 div#options{
     margin: 10px;
 }
