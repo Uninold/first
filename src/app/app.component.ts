@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+<<<<<<< HEAD
   studentCollection: Array<object> = [];
   studentRecord: object;
 
@@ -69,3 +70,7 @@ export class AppComponent {
     this.studYr = null;
   }
 }
+=======
+  title = 'app';
+}
+>>>>>>> 8a146839a014cdb5513fb0b25198d3b2d8fe173f
