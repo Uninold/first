@@ -1,3 +1,4 @@
+
 <div>
   <label>Student Number</label><input type="text" [(ngModel)]="studNo"><br>
   <label>Student First Name</label><input type="text" [(ngModel)]="studFname"><br>
@@ -6,35 +7,35 @@
   <label>Student Year</label><input type="text" [(ngModel)]="studYr"><br>
 </div>
 <div id="options">
-  <button id="addStudents" (click)="addStudentEntry()">
-    Add Student Entry
-  </button>
-  <button id="listStudents" (click)="listStudents()">
-    List Students
-  </button>
+    <button id="addStudents" (click)="addStudentEntry()">
+      Add Student
+    </button>
+    <button id="listStudents" (click)="listStudentEntry()">
+      List Students
+    </button>
 </div>
-<div>
-  {{ messages}}
-</div>
-<div *ngIf="printing">
-  <table>
-    <thead>
-      <tr>
-        <td> Student Number </td>
-        <td> First Name </td>
-      <td> Last Name </td>
-      <td> Program Enrolled </td>
-        <td> Year </td>
-      </tr>
-    </thead>
-  <tbody>
-  <tr *ngFor="let studentRecord of studentCollection">
-    <td> {{ studentRecord.studNumber}} </td>
-    <td> {{ studentRecord.studFirstName}} </td>
-    <td> {{ studentRecord.studLastName}} </td>
-    <td> {{ studentRecord.studProgram}} </td>
-    <td> {{ studentRecord.studYear}} </td>
-  </tr>
-  </tbody>
-  </table>
-</div>
+  <div>
+    {{ messages }}
+  </div>
+  <div *ngIf="printing">
+    <table>
+        <thead>
+          <tr>
+            <th>Student Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Student Program</th>
+            <th>Student Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let studentRecord of studentCollection">
+            <td>{{ studentRecord.studNumber }}</td>
+            <td>{{ studentRecord.studFirstName }}</td>
+            <td>{{ studentRecord.studLastName }}</td>
+            <td>{{ studentRecord.studProgram }}</td>
+            <td>{{ studentRecord.studYear }}</td>
+          </tr>
+          <tbody>
+    </table>
+  </div>

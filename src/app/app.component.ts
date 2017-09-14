@@ -8,63 +8,64 @@ import { Component } from '@angular/core';
 export class AppComponent {
   studentCollection: Array<object> = [];
   studentRecord: object;
+
   studNo: number;
   studFname: string;
   studLname: string;
   studProg: string;
   studYr: number;
 
-  messages = '';
+  messages = ' ';
   printing = false;
 
-private checkPatterns(value: any, pattern: RegExp): boolean{
-  if(pattern.test(value))
-    return true;
-  else{
-    return false;
+
+  private checkPatterns(value: any, pattern: RegExp): boolean {
+    if (pattern.test(value))
+      return true;
+    else
+      return false;
   }
-}
-addStudentEntry(): Boolean{
-  this.printing = false;
-  const studNumberPattern = /^[0-9]+$/;
-  const stringPattern = /^[A-z\s]+$/;
-  const studYearPattern = /^[1-5]+$/;
 
-  if(this.checkPatterns(this.studNo,studNumberPattern) &&
-    this.checkPatterns(this.studFname,stringPattern)&&
-    this.checkPatterns(this.studLname,stringPattern)&&
-    this.checkPatterns(this.studProg,stringPattern)&&
-    this.checkPatterns(this.studYr,studYearPattern)){
+  addStudentEntry(): Boolean{
+    this.printing = false;
+    const stringPattern = /^[A-z\s]+$/;
+    const numberPattern = /^[0-9]+$/;
+    const yearPattern = /^[1-5]+$/;
 
+    if (this.checkPatterns(this.studNo, numberPattern) && this.checkPatterns(this.studFname, stringPattern) &&
+      this.checkPatterns(this.studLname, stringPattern) && this.checkPatterns(this.studProg, stringPattern) &&
+      this.checkPatterns(this.studYr, yearPattern)){
 
-  this.studentRecord = {
-    studNumber: this.studNo,
-    studFirstName: this.studFname,
-    studLastName: this.studLname,
-    studProgram: this.studProg,
-    studYear: this.studYr
-  };
+        this.studentRecord = {
+          studNumber: this.studNo,
+          studFirstName: this.studFname,
+          studLastName: this.studLname, 
+          studProgram: this.studProg,
+          studYear: this.studYr
+        };
 
-  this.studentCollection.push(this.studentRecord);
-  this.messages = null;
-  this.clearValues();
+        this.studentCollection.push(this.studentRecord);
+
+        this.messages = null;
+        this.clearList();
+      } else {
+        this.messages =  'Errors have been encountered therefore cannot continue process requested operation';
+        return false;
+      }
   }
-else{
-  this.messages = 'Errors have been encountered and therefore cannot continue to process requested operation.';
-  return false;
-  } 
-}
 
-listStudents(): void{
-  this.printing = true;
-  console.log('Showing stored students');
-}
 
-clearValues(): void{
-  this.studNo = null;
-  this.studFname = null;
-  this.studLname = null;
-  this.studProg = null;
-  this.studYr = null;
+  listStudentEntry(): void{
+    this.printing = true;
+    console.log('Displays values input!');
+  }
+  
+
+  clearList(): void {
+    this.studNo = null;
+    this.studFname = null;
+    this.studLname = null;
+    this.studProg = null;
+    this.studYr = null;
   }
 }
